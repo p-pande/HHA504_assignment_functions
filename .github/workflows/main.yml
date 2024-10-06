@@ -1,0 +1,18 @@
+name: Scheduled Task
+
+on:
+  schedule:
+    - cron: '0 5 * * *' 
+  workflow_dispatch: # manual triggers
+
+jobs:
+  run-scheduled-task:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Run scheduled task
+        run: |
+          echo "Scheduled task executed at $(date)"
